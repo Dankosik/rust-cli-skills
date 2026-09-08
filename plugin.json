@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "rust-cli-skills",
+  "version": "1.0.0",
+  "description": "Independent skills for fast, resource-conscious Rust command-line utilities.",
+  "author": {
+    "name": "Dankosik",
+    "url": "https://github.com/Dankosik"
+  },
+  "homepage": "https://github.com/Dankosik/rust-cli-skills",
+  "repository": "https://github.com/Dankosik/rust-cli-skills",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "developer-tools",
+    "rust",
+    "cli"
+  ],
+  "extensions": {
+    "io.github.dankosik.distribution": {
+      "displayName": "Rust CLI Skills",
+      "shortDescription": "Independent skills for fast, resource-conscious Rust command-line utilities.",
+      "longDescription": "16 focused, independent skills for Rust development. Implement clear requirements, preserve project choices, and use focused evidence for testing and performance.",
+      "defaultPrompt": [
+        "Use rust-implement to implement this specification with our existing technical choices.",
+        "Help me write focused tests for this Rust change.",
+        "Investigate the cause of this Rust performance problem."
+      ],
+      "brandColor": "#B54A31",
+      "skillCount": 16
+    }
+  }
+}
