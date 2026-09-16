@@ -1,6 +1,6 @@
 {
   "name": "rust-cli-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Independent skills for fast, resource-conscious Rust command-line utilities.",
   "author": {
     "name": "Dankosik",

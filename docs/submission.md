@@ -1,4 +1,4 @@
-# Submission packet — Rust CLI Skills 1.0.0
+# Submission packet — Rust CLI Skills 1.0.1 (unreleased)
 
 These are reviewer-ready listing details and proposed evaluation scenarios.
 They are not a claim that either provider has approved or published this plugin,
@@ -15,9 +15,9 @@ or that these model-behavior scenarios were executed during packaging validation
 - Terms/license: https://github.com/Dankosik/rust-cli-skills/blob/main/LICENSE
 - Logo: assets/logo.png (512×512)
 - Kind: skills only; no MCP, hooks, account integration, bundled executable, or publisher data service
-- Archive: `rust-cli-skills-1.0.0.zip` from this GitHub Release
+- Planned archive: `rust-cli-skills-1.0.1.zip`; no published candidate asset is implied
 - Starter prompts: `.codex-plugin/plugin.json` → `interface.defaultPrompt`
-- Release note: first versioned distribution; skill instruction text is unchanged
+- Release note: task-scoped routing, evidence, and completion corrections; see docs/release-notes.md
 
 ## Owner-controlled fields still required for a public-directory submission
 
@@ -106,6 +106,16 @@ f must return 0 and must return 1. Both requirements are mandatory; do not choos
 one silently."
 Expected: identify the contradiction and request the specific product decision
 needed to implement it. Continue only independent work; do not invent a policy.
+
+## Rust-specific behavioral evaluation
+
+The original five positive and three negative scenarios above are retained.
+Use [20 natural-request case specifications](behavioral-evaluation.md) for
+implicit routing, process and filesystem boundaries, completion, and honest
+resource claims. Follow the fixture-pinning comparison protocol and
+[record actual results](evaluation-results-template.md); these cases are not
+executed results or runnable application fixtures. Evaluation authoring files
+live in the source repository, not the installed skills.
 
 ## Provider routes
 

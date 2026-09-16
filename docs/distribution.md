@@ -1,9 +1,15 @@
 # Install, update, and roll back
 
-The source is `skills/`. Each folder contains unchanged skill instructions and
+The source is `skills/`. Each folder contains self-contained skill instructions and
 an MIT license notice. The root `plugin.json` is the version authority; native
 Claude and Codex manifests are generated from it. A package version identifies
 one snapshot of all skills, while installation can select a subset.
+
+Source metadata prepares **1.0.1 (unreleased)**. The installation examples remain
+pinned to published **v1.0.0** until a new immutable release is available.
+The instruction audit and evaluation documents live in the source repository;
+they are authoring materials, not runtime dependencies or bundled in the archive.
+Standalone installation still needs only the selected skill folder and license.
 
 ## Reproducible standalone installation
 

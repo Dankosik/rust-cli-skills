@@ -1,11 +1,11 @@
 ---
 name: rust-idiomatic
-description: "Contracts. Use when writing or simplifying Rust CLI values, functions, traits, ownership, or collection transformations while preserving observable behavior."
+description: "Use for Rust representation, borrowing, trait, or transformation decisions where caller-visible semantics or readability need attention."
 ---
 
 # Rust Idiomatic
 
-**Contracts.** Make ownership and caller expectations visible in ordinary Rust. Identify absence, mutation, ordering, errors, and resource lifetime before changing representation. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Contracts.** Make ownership and caller expectations visible in ordinary Rust. Identify absence, mutation, ordering, errors, and resource lifetime before changing representation. Honor supplied requirements and preserve settled choices outside the requested change; resolve only what the task leaves open.
 
 Use the supported edition, Rust version, and project conventions. Borrow through slices, string slices, or paths when ownership is unnecessary; move owned values when responsibility transfers. Let lifetimes describe actual relationships. Before cloning or introducing shared ownership to satisfy the borrow checker, inspect the data flow and scope of the borrow.
 
@@ -15,4 +15,4 @@ Use iterators for readable transformations and loops for clearer stateful contro
 
 Prefer safe standard-library and established crate operations. Keep unsafe code narrowly justified by a concrete need, with the invariants its callers must uphold; successful compilation does not establish soundness.
 
-Finish with formatted code and focused checks that would fail for a plausible violation of the changed contract. Avoid unrelated modernization or a generic abstraction that obscures a straightforward operation.
+For review, explain the contract issue and smallest justified change without editing files. For implementation, finish with formatted code and focused checks for the behavior or type contract affected. Avoid unrelated modernization or abstractions that obscure the operation; neither a clone nor a shared owner is wrong merely by its spelling.

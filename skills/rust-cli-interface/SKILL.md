@@ -5,7 +5,7 @@ description: "Composition. Use when Rust command arguments, configuration preced
 
 # Rust CLI Interface
 
-**Composition.** Treat the command as an interface to both people and other programs. Identify accepted inputs, output streams, exit behavior, and effects. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Composition.** Treat the command as an interface to both people and other programs. Identify accepted inputs, output streams, exit behavior, and effects. Honor supplied requirements and preserve settled choices outside the requested change; resolve only what the task leaves open.
 
 Preserve the established argument parser. For a new command, match parser complexity to its grammar; clap is an established option for structured arguments, validation, and help. Reuse its supported mechanisms instead of duplicating parsing rules. Keep help and version paths inexpensive and free of unrelated initialization or effects.
 
@@ -15,4 +15,4 @@ Keep result data on stdout and diagnostics or progress on stderr. Preserve any e
 
 Prompt only when interaction is part of the command's contract and the appropriate terminal is available. Do not consume piped data as a confirmation answer. Keep noninteractive failure actionable.
 
-Exercise the actual argument parser and command output, including the relevant invalid combination, precedence conflict, or redirected stream. Confirm help, diagnostics, and effects agree with the command's documented behavior.
+For review, explain the affected interface decision without editing. For implementation, exercise the changed grammar or precedence through the actual parser or configuration merge; use the built command when process wiring, streams, or exit behavior is the claim. Check only relevant help, invalid-input, or redirected-output paths. Use a terminal test when terminal behavior matters, not for every flag change.

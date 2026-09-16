@@ -14,7 +14,9 @@ The performance goal is explicit, but workload-specific. Startup latency, time t
 
 ## Install
 
-Versioned release: [v1.0.0](https://github.com/Dankosik/rust-cli-skills/releases/tag/v1.0.0).
+Published release: [v1.0.0](https://github.com/Dankosik/rust-cli-skills/releases/tag/v1.0.0).
+Source metadata prepares 1.0.1 (unreleased); the commands below intentionally stay
+pinned to the published release until a new tag is available.
 Install selected skills, or the entire pack, into your current project:
 
 ```sh
@@ -54,9 +56,26 @@ of review for either provider's public directory.
 | [rust-build](skills/rust-build/SKILL.md) | Resolution | Cargo, toolchains, features, dependency resolution, and build profiles |
 | [rust-distribution](skills/rust-distribution/SKILL.md) | Compatibility | Cargo packages, prebuilt binaries, installers, and supported targets |
 
-Use `rust-implement` when the task is clear and the work is to implement it. Use a specialist when its particular decision needs attention. Each preserves supplied requirements and settled choices; none requires a design phase.
+Use `rust-implement` when the task is clear and the work is to implement it. Use a specialist when its particular decision needs attention. Each preserves supplied requirements and settled choices outside the explicitly requested change; none requires a design phase.
 
 `rust-io` follows data through the pipeline; `rust-memory` accounts for what remains live; `rust-performance` measures whether a change helps the workload. `rust-testing` checks ordinary behavior; `rust-cli-testing` retains the actual process or OS mechanism. `rust-build` explains how the executable is produced; `rust-distribution` verifies how users receive and run it.
+
+Select skills for decisions that need their guidance, not merely because a file
+contains Rust, I/O, or a CLI. Specialists are not mandatory stages; combine them
+when distinct parts of the task need them. A skill does not expand authorized
+scope or require every topic in its body to be investigated.
+
+Match the result to the request: review or diagnosis explains without editing;
+implementation continues through relevant checks and fixes for failures it
+introduces. Reuse applicable evidence for the same revision and environment,
+while preserving required project checks. Do not invent new infrastructure or
+unrelated cleanup as completion gates.
+
+Match evidence to the claim: direct parser and I/O tests can cover grammar or
+byte behavior; process wiring and status require the built command; pipe,
+terminal, and filesystem claims require their actual mechanism. A logical
+retention bound is not measured RSS, and compilation is not a soundness proof.
+State unavailable verification instead of substituting a weaker claim.
 
 ## Use
 
@@ -91,6 +110,12 @@ These sources informed the instructions; skills do not require reading them to f
 Keep each skill independent and decision-focused. Prefer an established concept over a new glossary and a precise trigger over a capability catalog. Connect the promised property to a plausible failure, an observation that distinguishes it, and an appropriate completion criterion. Preserve meaningful differences through test fixtures and assertions.
 
 Improve wording against a realistic task that exposed a weakness. Keep effort proportional to the change and keep API tutorials out of the skill. The pack uses the [Agent Skills format](https://agentskills.io/specification). Structural validity does not establish better model behavior or faster generated programs; those claims need separate evaluation.
+
+Changes to instruction behavior should be compared on realistic tasks using
+[behavioral evaluation](docs/behavioral-evaluation.md) and its
+[results template](docs/evaluation-results-template.md). Scenarios are not test
+results. The [instruction audit](docs/instruction-audit.md) records this revision's
+rationale; it is authoring documentation, not an extra file agents must read.
 
 ## Acknowledgements
 
