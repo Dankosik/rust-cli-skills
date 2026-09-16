@@ -5,7 +5,7 @@ description: "Failure semantics. Use when Rust CLI errors, diagnostics, exit sta
 
 # Rust Errors
 
-**Failure semantics.** Follow failure from the operation that knows what happened to the process boundary that reports it. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Failure semantics.** Follow failure from the operation that knows what happened to the process boundary that reports it. Honor supplied requirements and preserve settled choices outside the requested change; resolve only what the task leaves open.
 
 Use Result for expected failures and preserve the underlying cause when adding useful operation or path context. Retain typed distinctions when callers choose different recovery behavior; an application-level error wrapper can simplify reporting. Reuse the project's error approach before adding another crate. Classify structured errors rather than matching display strings.
 
@@ -17,4 +17,4 @@ Complete fallible output and cleanup before reporting success. Returning ExitCod
 
 Treat a downstream stdout BrokenPipe according to the command's pipeline contract, without suppressing unrelated read, file-write, or stderr failures. Interruption does not reverse effects already performed.
 
-Verify the relevant failure through exit status, diagnostics, output, and resulting state. Choose an assertion that would expose false success or an unintended effect.
+For review, explain the failure policy and false-success risk without editing. For implementation, check the changed error distinction or rendering with focused tests; exercise the process boundary when exit status, stream completion, or post-exit state is the claim. Assert the relevant output and effect, not every failure mode in this skill. Report exactly what was exercised.

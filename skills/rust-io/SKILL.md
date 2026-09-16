@@ -1,11 +1,11 @@
 ---
 name: rust-io
-description: "Streaming. Use when Rust CLI stdin, stdout, files, parsers, or pipelines need bounded buffering, byte fidelity, throughput, or correct I/O failure handling."
+description: "Use for Rust CLI data-flow changes involving bounded buffering, record parsing, byte fidelity, or read/write completion."
 ---
 
 # Rust I/O
 
-**Streaming.** Trace bytes from their source to their consumer, including what must remain buffered between steps. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Streaming.** Trace bytes from their source to their consumer, including what must remain buffered between steps. Honor supplied requirements and preserve settled choices outside the requested change; resolve only what the task leaves open.
 
 Use Read, BufRead, Write, and existing parsers before building an I/O abstraction. Stream growing input when the operation permits it; whole-input reads can be appropriate for demonstrably bounded data. Identify when sorting, aggregation, or lookahead genuinely requires retention and bound or externalize that state.
 
@@ -17,4 +17,4 @@ Lock standard streams for sustained access and buffer repeated small writes when
 
 Handle Interrupted and BrokenPipe at the correct boundary using the command's policy. Propagate other failures without converting them to clean EOF or success.
 
-Verify chunk splits, the relevant oversized or malformed record, partial writes, and late output failure through controlled readers or writers. Use real pipes when backpressure or downstream closure is the claim.
+Check the changed I/O property with controlled readers or writers: relevant chunk splits, record limits, short writes, or late failures, not all of them for every change. Use real pipes when backpressure or downstream closure is the claim. For review, explain the risk without editing; for implementation, report observed byte/error behavior and any untested OS boundary. Do not add throughput benchmarks unless throughput is part of the claim.

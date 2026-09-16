@@ -16,6 +16,23 @@ in docs/distribution.md. CI validates the format and distributable; semantic
 skill changes additionally need focused behavioral evaluation. An installation
 pass is not proof of quality across all models.
 
+The 1.0.1 candidate corrects task scope and completion within existing domains;
+names, paths, independent installation, and environment contracts are unchanged.
+This is a PATCH correction, not an assertion that description edits are merely
+cosmetic. Broader future activation or scope changes still need a fresh SemVer
+assessment.
+
+Use the [evaluation protocol](behavioral-evaluation.md) to select changed cases
+and routing negatives. Record concrete fixture revisions, model/host settings,
+observed outcomes, and unexecuted cases using the
+[results template](evaluation-results-template.md). Structural CI and a set of
+proposed scenarios are not substitutes for focused behavioral evidence before
+publishing semantic changes.
+
+Keep a prepared version explicitly unreleased until its immutable tag and assets
+exist; leave installation examples pinned to the last published release in the
+meantime. Preparing metadata does not authorize publication or marketplace edits.
+
 Release from a reviewed, green commit. Push `vX.Y.Z` matching plugin.json.
 The release workflow validates that exact tag, builds one skills-only archive,
 records file hashes and commit identity, and uploads all assets before publishing.

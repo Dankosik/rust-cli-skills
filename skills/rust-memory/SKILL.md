@@ -1,13 +1,13 @@
 ---
 name: rust-memory
-description: "Retention. Use when Rust CLI allocation rate, peak memory, buffer growth, or data ownership needs diagnosis or reduction."
+description: "Use to analyze or reduce Rust CLI allocation churn, retained data, growing buffers, or peak-memory use."
 ---
 
 # Rust Memory
 
-**Retention.** Account for what stays live, how large it can become, and which owner releases it. Separate allocation count, live heap, peak resident memory, stack, and mapped pages. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Retention.** Account for what stays live, how large it can become, and which owner releases it. Separate allocation count, live heap, peak resident memory, stack, and mapped pages. Honor supplied requirements and preserve settled choices outside the requested change; resolve only what the task leaves open.
 
-Trace memory as input size and concurrency grow. Include parser buffers, collections, queues, worker state, output reordering, and captured subprocess data. Streaming one stage does not bound a later collector. Name the term that grows before selecting a smaller representation.
+Trace the affected owners as input size or concurrency grows; include parser buffers, collections, queues, worker state, output reordering, or captured subprocess data where they contribute. Streaming one stage does not bound a later collector. Name the term that grows before selecting a smaller representation.
 
 Remove demonstrated redundant copies and intermediate collections. Borrow where lifetimes stay simple, move owned data when possible, and reuse buffers in repeated work. A tiny borrowed view or shared reference can retain a large owner; copying a small surviving value may reduce total retention.
 
@@ -17,4 +17,4 @@ Measure before introducing interning, arenas, custom allocators, alternative has
 
 Use allocation evidence to locate churn and resident-memory evidence for the process budget. Account for allocator retention, page cache conditions, child processes, and measurement overhead. A falling allocation count alone does not establish lower peak memory.
 
-Compare representative and growing inputs under equivalent conditions, preserving output and failures. Finish with the changed owner or growth term, observed memory results, and any remaining bound or uncertainty.
+For an audit or diagnosis, identify supported owners and growth terms, separate hypotheses from observed evidence, and propose the next useful measurement without editing. A code-derived retention bound is not a measured RSS result. For a requested reduction or bound, implement the relevant ownership change, preserve output and failures, and check the bound at its real mechanism. Compare representative inputs when claiming a measured memory improvement; report unavailable measurements without inventing them or treating every task as an allocator investigation.
