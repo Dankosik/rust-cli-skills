@@ -15,4 +15,6 @@ Let types express meaningful invariants and ownership. Keep lifetime parameters 
 
 Evaluate a boundary by the knowledge it removes from callers. Centralize shared policy while preserving independent reasons to change. Keep allocation and effect ownership explainable across the retained boundaries.
 
-For analysis or review, explain the responsibility problem and smallest justified boundary without editing files. For requested refactoring, preserve output, failures, ordering, mutation, and resource lifetime. Finish when the changed responsibility has a clear owner, retained abstractions earn their cost, and focused checks cover the behavior at risk; no separate design phase is required.
+For analysis or review, make no edits. Anchor each material finding in the affected code, caller, and requirement or concrete maintenance cost; explain the smallest justified correction. Distinguish a contract violation from a design heuristic. A named smell alone is not a defect, and a review need not manufacture findings.
+
+For requested refactoring, preserve output, failures, ordering, mutation, and resource lifetime. Finish when the changed responsibility has a clear owner, retained abstractions earn their cost, and focused checks cover the behavior at risk; no separate design phase is required.
