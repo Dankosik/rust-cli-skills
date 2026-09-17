@@ -114,8 +114,17 @@ Improve wording against a realistic task that exposed a weakness. Keep effort pr
 Changes to instruction behavior should be compared on realistic tasks using
 [behavioral evaluation](docs/behavioral-evaluation.md) and its
 [results template](docs/evaluation-results-template.md). Scenarios are not test
-results. The [instruction audit](docs/instruction-audit.md) records this revision's
-rationale; it is authoring documentation, not an extra file agents must read.
+results. The [instruction audit](docs/instruction-audit.md) records the earlier
+revision's rationale; it is authoring documentation, not a runtime dependency.
+
+The [reference review](docs/reference-review.md) maps the OpenAI, Matt Pocock,
+Alibaba, and Thariq sources to retained rules, targeted changes, and rejected
+process overhead. [Executable evaluation fixtures](evals/README.md) cover three
+concrete tasks with independent oracles, plus explicit and near-miss prompts.
+The artifact grader does not invoke models or certify routing, authorized scope,
+or general improvement. The root [AGENTS.md](AGENTS.md), evaluation code, and
+review protocol maintain this repository; they are not extra consumer workflows
+or files inside the installed skills.
 
 ## Acknowledgements
 

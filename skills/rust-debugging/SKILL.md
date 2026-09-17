@@ -9,9 +9,11 @@ description: "Causality. Use for an uncertain Rust CLI defect, panic, hang, inco
 
 Choose the smallest useful signal for the reported symptom. Inspect actual arguments, bytes, environment, target, features, or profile when they distinguish plausible causes; compiler-only failures need no process reproduction. Separate compiler diagnostics, process startup failures, domain errors, and crashes. Preserve raw stdout, stderr, and status when their differences explain the symptom.
 
+Minimize a reproducer only while it retains the same failure. Choose an observation that could disprove the leading explanation, not just confirm it. After an ineffective fix, revisit that explanation instead of stacking speculative changes. Keep unrelated baseline failures distinct from the reported defect.
+
 Read the available error chain or backtrace and trace relevant callers. For ownership errors, identify the actual owner and required lifetime before adding clone, Arc, or unsafe. For optimized-only failures, compare cfg, assertions, overflow behavior, and timing rather than assuming an optimizer bug.
 
-Choose the next observation to distinguish plausible causes. Follow file identity, buffer contents, short I/O operations, child streams, locks, and task completion across their real boundaries. A retry, panic catch, or discarded error can hide the mechanism without repairing it.
+Follow file identity, buffer contents, short I/O operations, child streams, locks, and task completion across their real boundaries. A retry, panic catch, or discarded error can hide the mechanism without repairing it.
 
 Use the appropriate debugger, profile, or syscall trace when runtime evidence is needed. Miri can detect some undefined behavior in supported executions, but it does not certify arbitrary OS interaction or prove overall soundness. Keep sensitive input and credentials out of diagnostic captures.
 

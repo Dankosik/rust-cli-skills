@@ -1,0 +1,13 @@
+[package]
+name = "skill-fixture"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+autobins = false
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "fixture-cli"
+path = "src/main.rs"
